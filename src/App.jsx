@@ -172,12 +172,16 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-zinc-100 font-sans flex flex-col">
       {/* Top section with full-width hero image */}
-      <header className="relative w-full h-64 md:h-80 lg:h-96 shrink-0 bg-zinc-900 border-b border-white/5 overflow-hidden">
-        <img 
-          src={heroImage} 
-          alt="Calendar Hero" 
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out" 
-          style={{ opacity: heroOpacity }}
+      <header className="relative w-full min-h-[16rem] md:min-h-[20rem] lg:min-h-[24rem] h-auto flex flex-col justify-end shrink-0 bg-zinc-900 border-b border-white/5">
+        <div 
+          className="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out" 
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            opacity: heroOpacity 
+          }}
         />
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
@@ -205,13 +209,13 @@ function App() {
           </button>
         </div>
         
-        <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 pb-8">
+        <div className="relative z-10 w-full mt-auto p-6 md:p-12 pb-8">
           <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-4 z-10">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-3 shadow-sm">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-3 shadow-sm">
                 Smart Calendar
               </h1>
-              <p className="text-zinc-300 text-lg md:text-xl max-w-lg drop-shadow-md">
+              <p className="text-zinc-300 text-base sm:text-lg md:text-xl max-w-lg drop-shadow-md">
                 Organize your days, manage your tasks, and achieve your goals with a unified workflow.
               </p>
             </div>
@@ -235,19 +239,19 @@ function App() {
       </header>
 
       {/* Main two-column content area */}
-      <main className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-8 flex flex-col">
-        <div className="flex flex-col lg:flex-row gap-8 flex-1 items-start">
+      <main className="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 flex flex-col overflow-x-auto">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 flex-1 items-start">
           
           {/* Left Column (Calendar) */}
-          <section className="w-full lg:w-7/12 flex flex-col xl:min-h-[600px]">
+          <section className="w-full lg:w-1/2 flex flex-col h-auto">
             <div className="w-full h-full flex flex-col gap-6">
               <div className="flex items-center justify-between px-2">
-                <h2 className="text-2xl font-semibold text-zinc-100 flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center ring-1 ring-indigo-500/30">📅</span>
+                <h2 className="text-xl sm:text-2xl font-semibold text-zinc-100 flex items-center gap-2 sm:gap-3">
+                  <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center ring-1 ring-indigo-500/30 text-sm sm:text-base">📅</span>
                   Calendar View
                 </h2>
               </div>
-              <div className="flex-1 bg-zinc-900/60 rounded-3xl border border-white/5 p-4 md:p-6 lg:p-8 backdrop-blur-md shadow-2xl">
+              <div className="flex-1 bg-zinc-900/60 rounded-3xl border border-white/5 p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-2xl overflow-x-auto">
                 <Calendar 
                   selectedDate={selectedDate} 
                   setSelectedDate={setSelectedDate} 
@@ -260,15 +264,15 @@ function App() {
           </section>
 
           {/* Right Column (Tasks) */}
-          <section className="w-full lg:w-5/12 flex flex-col xl:min-h-[600px]">
+          <section className="w-full lg:w-1/2 flex flex-col h-auto">
              <div className="w-full h-full flex flex-col gap-6">
                <div className="flex items-center justify-between px-2">
-                <h2 className="text-2xl font-semibold text-zinc-100 flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center ring-1 ring-cyan-500/30">✓</span>
+                <h2 className="text-xl sm:text-2xl font-semibold text-zinc-100 flex items-center gap-2 sm:gap-3">
+                  <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center ring-1 ring-cyan-500/30 text-sm sm:text-base">✓</span>
                   Notes & Tasks
                 </h2>
               </div>
-              <div className="flex-1 bg-zinc-900/60 rounded-3xl border border-white/5 p-4 md:p-6 lg:p-8 backdrop-blur-md shadow-2xl">
+              <div className="flex-1 bg-zinc-900/60 rounded-3xl border border-white/5 p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-2xl">
                 <Tasks 
                   selectedDate={selectedDate} 
                   endDate={endDate}

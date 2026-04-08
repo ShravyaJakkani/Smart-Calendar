@@ -70,14 +70,14 @@ export function Tasks({ selectedDate, endDate, tasks, setTasks }) {
     : 0;
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl w-full flex flex-col h-full">
+    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-xl w-full flex flex-col h-full">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center">
-          <Clock className="w-5 h-5 text-indigo-400" />
+        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+          <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-400" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-white tracking-tight">Schedule</h2>
-          <p className="text-sm text-zinc-400">{format(selectedDate, "EEEE, MMMM d")}</p>
+          <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">Schedule</h2>
+          <p className="text-xs sm:text-sm text-zinc-400">{format(selectedDate, "EEEE, MMMM d")}</p>
         </div>
       </div>
 

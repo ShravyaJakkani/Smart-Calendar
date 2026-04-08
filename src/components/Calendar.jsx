@@ -54,7 +54,7 @@ export function Calendar({ selectedDate, setSelectedDate, endDate, setEndDate, t
         key={day.toString()}
         onClick={() => onDateClick(cloneDay)}
         className={cn(
-          "relative flex flex-col items-center justify-center p-2 h-14 w-full cursor-pointer rounded-xl transition-all duration-200",
+          "relative flex flex-col items-center justify-center p-1 sm:p-2 h-12 sm:h-14 lg:h-16 w-full cursor-pointer rounded-xl transition-all duration-200",
           !isSameMonth(day, monthStart) ? "text-zinc-600" : "text-zinc-200",
           isSelected && "bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 font-bold",
           inRange && "bg-indigo-500/20 text-indigo-300 font-medium",
@@ -62,7 +62,7 @@ export function Calendar({ selectedDate, setSelectedDate, endDate, setEndDate, t
           !isSelected && !inRange && !isToday(day) && "hover:bg-zinc-800"
         )}
       >
-        <span className="text-sm select-none">{format(cloneDay, dateFormat)}</span>
+        <span className="text-xs sm:text-sm md:text-base select-none">{format(cloneDay, dateFormat)}</span>
         
         {/* Render tasks */}
         {dayTasks.length > 0 && (
@@ -94,13 +94,13 @@ export function Calendar({ selectedDate, setSelectedDate, endDate, setEndDate, t
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl w-full h-full flex flex-col">
-      <div className="flex justify-between items-center mb-6">
+    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-xl w-full h-full flex flex-col">
+      <div className="flex justify-between items-center mb-4 sm:mb-6">
         <div>
-          <h2 className="text-xl font-bold text-white tracking-tight">
+          <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
             {format(currentMonth, "MMMM yyyy")}
           </h2>
-          <p className="text-sm text-zinc-400 mt-1">Select a date to view tasks</p>
+          <p className="text-xs sm:text-sm text-zinc-400 mt-1">Select a date to view tasks</p>
         </div>
         <div className="flex gap-2">
           <button 
@@ -118,15 +118,15 @@ export function Calendar({ selectedDate, setSelectedDate, endDate, setEndDate, t
         </div>
       </div>
 
-      <div className="grid grid-cols-7 gap-1 mb-2">
+      <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-2">
         {weekdays.map((day) => (
-          <div key={day} className="text-center text-xs font-semibold uppercase text-zinc-500 py-2">
+          <div key={day} className="text-center text-[10px] sm:text-xs font-semibold uppercase text-zinc-500 py-1 sm:py-2">
             {day}
           </div>
         ))}
       </div>
       
-      <div className="grid grid-cols-7 gap-1">
+      <div className="grid grid-cols-7 gap-1 sm:gap-2">
         {days}
       </div>
     </div>
