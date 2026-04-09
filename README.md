@@ -42,19 +42,15 @@ Unlike complex tools, Smart Calendar focuses on **simplicity, clarity, and ease 
 
 ## 🌐 Live Demo
 
-👉 [https://smartcalendar-nine.vercel.app]
+👉 https://smartcalendar-nine.vercel.app
 
 ---
 
 ## 📂 GitHub Repository
 
-👉 [https://github.com/ShravyaJakkani/Smart-Calendar]
+👉 https://github.com/ShravyaJakkani/Smart-Calendar
 
 ---
-
-## 🎥 Demo Video
-
-👉 (Add your Google Drive / YouTube link here)
 
 ---
 
